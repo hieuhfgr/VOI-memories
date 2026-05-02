@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hieuhfgr - VOI archive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Special+Elite&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="title.png" type="image/x-icon">
+</head>
+<body>
+
+  <!-- Parallax background layer -->
+  <div class="parallax-bg" id="parallaxBg"></div>
+
+  <div class="page">
+
+    <!-- HEADER (static branding, never changes) -->
+    <header>
+      <span class="header-eyebrow">hieuhfgr - VOI archive</span>
+      <h1 class="header-title"><em>Memories</em> Storage</h1>
+      <p class="header-sub">Love is not something that you can express in words...</p>
+      <svg class="doodle-underline" viewBox="0 0 280 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4 12 C40 4, 80 16, 140 9 S220 3, 276 11" stroke="#8b6340" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+        <path d="M10 15 C50 10, 90 17, 140 13 S210 8, 272 14" stroke="#a0432a" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.5"/>
+      </svg>
+    </header>
+
+    <!-- TIMELINE — filled by script.js from data.json -->
+    <main class="timeline" id="timeline">
+      <p class="loading-msg">Loading memories…</p>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <svg width="120" height="10" viewBox="0 0 120 10" fill="none" aria-hidden="true" style="display:block;margin:0 auto 0.7rem">
+        <path d="M4 5 C30 1, 60 9, 90 4 S110 2, 116 5" stroke="#8b6340" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6"/>
+      </svg>
+      made with love &amp; a little bit of dust &nbsp;·&nbsp; all memories preserved <br>
+      thanks Claude, ChatGPT for build this website for me :D <br>
+      looking for more ? my IG: <a target="_blank" href="https://instagram.com/210505kkvoi2025">@210505kkvoi2025</a>
+    </footer>
+
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+      <p class="lightbox-description" id="lightboxDescription"></p>
+    </div>
+  </div>
+
+  <div class="side-deco side-deco--left" aria-hidden="true">
+    <svg width="130" height="100%" viewBox="0 0 130 900" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Main vertical branch -->
+  <path d="M 65 10 C 63 110, 70 210, 60 310 C 53 390, 67 470, 55 570 C 47 650, 60 730, 53 870"
+        stroke="#7a5c3a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Branch right at 80 -->
+  <path d="M 63 80 C 78 75, 95 72, 110 68" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="82" cy="73" rx="8" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-20,82,73)"/>
+  <ellipse cx="102" cy="66" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-15,102,66)"/>
+
+  <!-- Branch left at 160 -->
+  <path d="M 61 160 C 45 155, 28 152, 14 148" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="42" cy="153" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(15,42,153)"/>
+  <ellipse cx="20" cy="148" rx="8" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(10,20,148)"/>
+
+  <!-- FLOWER -->
+  <g transform="translate(45,235)">
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#8b6340" stroke-width="1"/>
+    <circle cx="0" cy="0" r="1" fill="#8b6340" opacity="0.6"/>
+  </g>
+
+  <!-- 4-LEAF CLOVER -->
+  <g transform="translate(26,325)">
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9"/>
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9" transform="rotate(270)"/>
+    <line x1="0" y1="-18" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <line x1="18" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <line x1="0" y1="18" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <line x1="-18" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <path d="M0 0 C 2 6, 1 12, 3 18" stroke="#5a7a3a" stroke-width="0.8" fill="none"/>
+  </g>
+
+  <!-- Branch right at 400 -->
+  <path d="M 58 400 C 74 395, 92 390, 108 385" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="76" cy="391" rx="8" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-10,76,391)"/>
+  <ellipse cx="98" cy="384" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-8,98,384)"/>
+
+  <!-- SMALL DAISY -->
+  <g transform="translate(38,465)">
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="3.5" fill="none" stroke="#8b6340" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="1.2" fill="#8b6340" opacity="0.5"/>
+  </g>
+
+  <!-- VINTAGE COMPUTER -->
+  <g transform="translate(32,535)" opacity="0.75">
+    <rect x="-22" y="-28" width="44" height="32" rx="3" fill="none" stroke="#7a5c3a" stroke-width="1"/>
+    <rect x="-17" y="-24" width="34" height="22" rx="1" fill="none" stroke="#8b6340" stroke-width="0.7"/>
+    <line x1="-15" y1="-19" x2="15" y2="-19" stroke="#8b6340" stroke-width="0.4" opacity="0.5"/>
+    <line x1="-15" y1="-14" x2="15" y2="-14" stroke="#8b6340" stroke-width="0.4" opacity="0.5"/>
+    <line x1="-15" y1="-9" x2="15" y2="-9" stroke="#8b6340" stroke-width="0.4" opacity="0.5"/>
+    <rect x="-14" y="-20" width="4" height="2" fill="#8b6340" opacity="0.7"/>
+    <line x1="0" y1="4" x2="0" y2="10" stroke="#7a5c3a" stroke-width="2" stroke-linecap="round"/>
+    <rect x="-14" y="10" width="28" height="4" rx="2" fill="none" stroke="#7a5c3a" stroke-width="0.9"/>
+    <circle cx="12" cy="-4" r="2" fill="none" stroke="#8b6340" stroke-width="0.7"/>
+  </g>
+
+  <!-- KEYBOARD -->
+  <g transform="translate(32,598)" opacity="0.75">
+    <rect x="-28" y="-10" width="56" height="18" rx="3" fill="none" stroke="#7a5c3a" stroke-width="1"/>
+    <rect x="-24" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="-16" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="-8" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="0" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="8" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="16" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="-14" y="1" width="28" height="4" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+  </g>
+
+  <!-- MOUSE -->
+  <g transform="translate(32,660)" opacity="0.75">
+    <path d="M0 -18 C -12 -16, -14 -5, -12 8 C -10 18, 10 18, 12 8 C 14 -5, 12 -16, 0 -18 Z"
+          fill="none" stroke="#7a5c3a" stroke-width="1"/>
+    <line x1="0" y1="-18" x2="0" y2="-2" stroke="#8b6340" stroke-width="0.6"/>
+    <rect x="-3" y="-10" width="6" height="6" rx="1" fill="none" stroke="#8b6340" stroke-width="0.6"/>
+    <path d="M0 18 C 2 26, -3 30, 0 36" stroke="#7a5c3a" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bottom foliage -->
+  <path d="M 57 708 C 41 703, 22 706, 9 711" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="36" cy="704" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(8,36,704)"/>
+  <ellipse cx="14" cy="710" rx="7" ry="3.5" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(12,14,710)"/>
+
+  <!-- Small clover bottom -->
+  <g transform="translate(40,800)">
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8"/>
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(270)"/>
+    <line x1="0" y1="-14" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+    <line x1="14" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+    <line x1="0" y1="14" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+    <line x1="-14" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+  </g>
+</svg>
+  </div>
+  <div class="side-deco side-deco--right" aria-hidden="true">
+    <svg width="130" height="100%" viewBox="0 0 130 900" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Main vertical branch -->
+  <path d="M 65 10 C 63 110, 70 210, 60 310 C 53 390, 67 470, 55 570 C 47 650, 60 730, 53 870"
+        stroke="#7a5c3a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Branch right at 80 -->
+  <path d="M 63 80 C 78 75, 95 72, 110 68" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="82" cy="73" rx="8" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-20,82,73)"/>
+  <ellipse cx="102" cy="66" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-15,102,66)"/>
+
+  <!-- Branch left at 160 -->
+  <path d="M 61 160 C 45 155, 28 152, 14 148" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="42" cy="153" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(15,42,153)"/>
+  <ellipse cx="20" cy="148" rx="8" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(10,20,148)"/>
+
+  <!-- FLOWER -->
+  <g transform="translate(45,235)">
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-14" rx="5" ry="9" fill="none" stroke="#a0432a" stroke-width="0.9" opacity="0.8" transform="rotate(315)"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="#8b6340" stroke-width="1"/>
+    <circle cx="0" cy="0" r="1" fill="#8b6340" opacity="0.6"/>
+  </g>
+
+  <!-- 4-LEAF CLOVER -->
+  <g transform="translate(26,325)">
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9"/>
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="7" ry="9" fill="none" stroke="#5a7a3a" stroke-width="0.9" transform="rotate(270)"/>
+    <line x1="0" y1="-18" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <line x1="18" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <line x1="0" y1="18" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <line x1="-18" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.5" opacity="0.6"/>
+    <path d="M0 0 C 2 6, 1 12, 3 18" stroke="#5a7a3a" stroke-width="0.8" fill="none"/>
+  </g>
+
+  <!-- Branch right at 400 -->
+  <path d="M 58 400 C 74 395, 92 390, 108 385" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="76" cy="391" rx="8" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-10,76,391)"/>
+  <ellipse cx="98" cy="384" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(-8,98,384)"/>
+
+  <!-- SMALL DAISY -->
+  <g transform="translate(38,465)">
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="7" fill="none" stroke="#c8935a" stroke-width="0.8" opacity="0.85" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="3.5" fill="none" stroke="#8b6340" stroke-width="0.8"/>
+    <circle cx="0" cy="0" r="1.2" fill="#8b6340" opacity="0.5"/>
+  </g>
+
+  <!-- VINTAGE COMPUTER -->
+  <g transform="translate(32,535)" opacity="0.75">
+    <rect x="-22" y="-28" width="44" height="32" rx="3" fill="none" stroke="#7a5c3a" stroke-width="1"/>
+    <rect x="-17" y="-24" width="34" height="22" rx="1" fill="none" stroke="#8b6340" stroke-width="0.7"/>
+    <line x1="-15" y1="-19" x2="15" y2="-19" stroke="#8b6340" stroke-width="0.4" opacity="0.5"/>
+    <line x1="-15" y1="-14" x2="15" y2="-14" stroke="#8b6340" stroke-width="0.4" opacity="0.5"/>
+    <line x1="-15" y1="-9" x2="15" y2="-9" stroke="#8b6340" stroke-width="0.4" opacity="0.5"/>
+    <rect x="-14" y="-20" width="4" height="2" fill="#8b6340" opacity="0.7"/>
+    <line x1="0" y1="4" x2="0" y2="10" stroke="#7a5c3a" stroke-width="2" stroke-linecap="round"/>
+    <rect x="-14" y="10" width="28" height="4" rx="2" fill="none" stroke="#7a5c3a" stroke-width="0.9"/>
+    <circle cx="12" cy="-4" r="2" fill="none" stroke="#8b6340" stroke-width="0.7"/>
+  </g>
+
+  <!-- KEYBOARD -->
+  <g transform="translate(32,598)" opacity="0.75">
+    <rect x="-28" y="-10" width="56" height="18" rx="3" fill="none" stroke="#7a5c3a" stroke-width="1"/>
+    <rect x="-24" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="-16" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="-8" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="0" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="8" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="16" y="-7" width="6" height="5" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+    <rect x="-14" y="1" width="28" height="4" rx="0.8" fill="none" stroke="#8b6340" stroke-width="0.5"/>
+  </g>
+
+  <!-- MOUSE -->
+  <g transform="translate(32,660)" opacity="0.75">
+    <path d="M0 -18 C -12 -16, -14 -5, -12 8 C -10 18, 10 18, 12 8 C 14 -5, 12 -16, 0 -18 Z"
+          fill="none" stroke="#7a5c3a" stroke-width="1"/>
+    <line x1="0" y1="-18" x2="0" y2="-2" stroke="#8b6340" stroke-width="0.6"/>
+    <rect x="-3" y="-10" width="6" height="6" rx="1" fill="none" stroke="#8b6340" stroke-width="0.6"/>
+    <path d="M0 18 C 2 26, -3 30, 0 36" stroke="#7a5c3a" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bottom foliage -->
+  <path d="M 57 708 C 41 703, 22 706, 9 711" stroke="#7a5c3a" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <ellipse cx="36" cy="704" rx="9" ry="4" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(8,36,704)"/>
+  <ellipse cx="14" cy="710" rx="7" ry="3.5" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(12,14,710)"/>
+
+  <!-- Small clover bottom -->
+  <g transform="translate(40,800)">
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8"/>
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-7" rx="5.5" ry="7" fill="none" stroke="#5a7a3a" stroke-width="0.8" transform="rotate(270)"/>
+    <line x1="0" y1="-14" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+    <line x1="14" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+    <line x1="0" y1="14" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+    <line x1="-14" y1="0" x2="0" y2="0" stroke="#5a7a3a" stroke-width="0.4" opacity="0.6"/>
+  </g>
+</svg>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

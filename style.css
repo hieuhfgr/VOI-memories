@@ -1,0 +1,467 @@
+/* =========================================================
+   hieuhfgr - VOI archive  |  style.css
+   ========================================================= */
+
+/* ── Reset & Base ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Colour Tokens ────────────────────────────── */
+:root {
+  --paper:       #f4ede0;
+  --paper-dark:  #e8d9c0;
+  --paper-mid:   #ddd0b4;
+  --ink:         #2c1e0f;
+  --ink-light:   #5a3e24;
+  --sepia:       #8b6340;
+  --sepia-light: #c49a68;
+  --rust:        #a0432a;
+  --sage:        #6b7c5e;
+  --tape:        rgba(255, 230, 160, 0.55);
+  --shadow:      rgba(44, 30, 15, 0.22);
+}
+
+/* ── Aged-paper noise texture ─────────────────── */
+body {
+  background-color: var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(139, 99, 64, 0.04) 28px,
+      rgba(139, 99, 64, 0.04) 29px
+    );
+  font-family: 'Special Elite', 'Courier New', monospace;
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Parallax wrapper ────────────────────────── */
+.parallax-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(160,67,42,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(107,124,94,0.07) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* ── Page wrapper ────────────────────────────── */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+/* ── Loading message ─────────────────────────── */
+.loading-msg {
+  text-align: center;
+  padding: 4rem;
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: var(--sepia);
+  opacity: 0.7;
+}
+
+/* ── HEADER ──────────────────────────────────── */
+header {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  position: relative;
+}
+
+header::before,
+header::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sepia-light), var(--sepia), var(--sepia-light), transparent);
+  margin: 0.8rem auto;
+  max-width: 480px;
+}
+
+.header-eyebrow {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--rust);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.header-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 7vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.35s forwards;
+}
+
+.header-title em {
+  font-style: italic;
+  color: var(--sepia);
+}
+
+.header-sub {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+  color: var(--ink-light);
+  margin-top: 0.8rem;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.doodle-underline {
+  display: block;
+  margin: 0.5rem auto 0;
+  width: min(280px, 70%);
+  opacity: 0;
+  animation: fadeUp 0.8s 0.65s forwards;
+}
+
+/* ── TIMELINE SPINE ──────────────────────────── */
+.timeline {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--paper-mid) 4%, var(--paper-mid) 96%, transparent);
+  transform: translateX(-50%);
+}
+
+/* ── YEAR DIVIDERS ───────────────────────────── */
+.year-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.year-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--paper);
+  background: var(--sepia);
+  padding: 0.25rem 1.1rem;
+  border-radius: 2px;
+  box-shadow: 2px 2px 6px var(--shadow);
+  letter-spacing: 0.08em;
+}
+
+/* ── GALLERY ROW ─────────────────────────────── */
+.gallery-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 4rem;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+
+.gallery-row .polaroid:nth-child(odd) {
+  margin-top: 2rem;
+}
+
+/* ── POLAROID CARD ───────────────────────────── */
+.polaroid {
+  background: #faf6ee;
+  padding: 0.8rem 0.8rem 2.6rem;
+  box-shadow:
+    0 2px 4px var(--shadow),
+    0 6px 18px rgba(44,30,15,0.14),
+    inset 0 0 0 1px rgba(180,150,100,0.2);
+  cursor: pointer;
+  position: relative;
+  transform-origin: center center;
+  will-change: transform;
+
+  opacity: 0;
+  transform: translateY(30px) rotate(var(--rot, 0deg));
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    box-shadow 0.3s ease;
+}
+
+.polaroid.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(var(--rot, 0deg));
+}
+
+.polaroid:hover {
+  transform: translateY(-6px) rotate(calc(var(--rot, 0deg) * 0.4)) scale(1.03);
+  box-shadow:
+    0 8px 24px rgba(44,30,15,0.28),
+    0 2px 6px var(--shadow);
+  z-index: 10;
+}
+
+/* Masking-tape corners */
+.polaroid::before,
+.polaroid::after {
+  content: '';
+  position: absolute;
+  width: 38px;
+  height: 16px;
+  background: var(--tape);
+  border: 1px solid rgba(200,170,80,0.35);
+  top: -8px;
+}
+.polaroid::before { left: 10px;  transform: rotate(-35deg); }
+.polaroid::after  { right: 10px; transform: rotate(35deg);  }
+
+/* ── Photo inside polaroid ───────────────────── */
+.polaroid-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+  background: var(--paper-dark);
+}
+
+.polaroid-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(35%) contrast(0.92) brightness(0.97);
+  transition: filter 0.35s ease, transform 0.45s ease;
+}
+
+.polaroid:hover .polaroid-img-wrap img {
+  filter: sepia(15%) contrast(1) brightness(1.03);
+  transform: scale(1.06);
+}
+
+/* Vignette */
+.polaroid-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(44,30,15,0.28) 100%);
+  pointer-events: none;
+}
+
+/* ── Polaroid caption ─────────────────────────── */
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  color: var(--ink-light);
+  text-align: center;
+  padding-top: 0.6rem;
+  line-height: 1.35;
+}
+
+a {
+  color: var(--rust);
+  text-decoration: underline dotted;
+}
+
+.polaroid-caption .date {
+  display: block;
+  font-size: 0.78em;
+  color: var(--sepia);
+  margin-top: 0.15rem;
+  font-family: 'Special Elite', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* ── Stamp badge ─────────────────────────────── */
+.stamp {
+  display: inline-block;
+  border: 3px double var(--rust);
+  color: var(--rust);
+  font-family: 'Special Elite', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  transform: rotate(-8deg);
+  opacity: 0.7;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  z-index: 3;
+}
+
+/* ── Doodle arrow ────────────────────────────── */
+.doodle-arrow {
+  position: absolute;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Section note ────────────────────────────── */
+.section-note {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--ink-light);
+  text-align: center;
+  margin: 0.5rem 0 2rem;
+  opacity: 0.75;
+}
+
+/* ── FOOTER ──────────────────────────────────── */
+footer {
+  text-align: center;
+  padding: 3rem 1rem 1.5rem;
+  font-family: 'Caveat', cursive;
+  font-size: 0.95rem;
+  color: var(--sepia);
+  opacity: 0.7;
+  border-top: 1px dashed var(--paper-mid);
+  margin-top: 3rem;
+}
+
+/* ── ANIMATIONS ──────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 640px) {
+  .timeline::before { display: none; }
+
+  .gallery-row {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .gallery-row .polaroid:nth-child(odd) {
+    margin-top: 0;
+  }
+}
+
+/* ── LIGHTBOX ─────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 12, 4, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+  padding: 1.5rem;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-inner {
+  max-width: min(90vw, 680px);
+  width: 100%;
+  background: #faf6ee;
+  padding: 1rem 1rem 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transform: scale(0.92);
+  transition: transform 0.35s;
+  position: relative;
+}
+
+.lightbox.open .lightbox-inner { transform: scale(1); }
+
+.lightbox-inner img {
+  width: 100%;
+  display: block;
+  filter: sepia(15%) contrast(0.96);
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.lightbox-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--ink-light);
+  text-align: center;
+  padding-top: 0.6rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.lightbox-description {
+  font-family: 'Special Elite', monospace;
+  font-size: 0.82rem;
+  color: var(--sepia);
+  text-align: center;
+  padding-top: 0.5rem;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 32px;
+  height: 32px;
+  background: var(--rust);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Special Elite', monospace;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  transition: background 0.2s;
+}
+
+.lightbox-close:hover { background: var(--sepia); }
+
+/* ── Side decorations ────────────────── */
+.side-deco {
+  position: fixed;
+  top: 0;
+  width: 130px;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.72;
+  z-index: 0;
+}
+
+.side-deco--left  { left: 0; }
+.side-deco--right { right: 0; transform: scaleX(-1); } /* mirror left SVG */
+
+.side-deco svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Hide on small screens so they don't crowd content */
+@media (max-width: 900px) {
+  .side-deco { display: none; }
+}
